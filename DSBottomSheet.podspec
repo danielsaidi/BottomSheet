@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DSBottomSheet'
-  s.version          = '0.0.1'
+  s.version          = '0.1.0'
   s.swift_versions   = ['5.3']
   s.summary          = 'DSBottomSheet makes it easy to add custom bottom sheets to your SwiftUI apps.'
 
@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
   
   s.source_files = 'Sources/**/*.swift'
-  s.resources = "Sources/KeyboardKit/Resources/*.xcassets"
+  s.resources = "Sources/BottomSheet/Resources/*.xcassets"
 end
