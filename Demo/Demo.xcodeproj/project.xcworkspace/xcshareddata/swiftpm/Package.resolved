@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BottomSheet",
+        "repositoryURL": "https://github.com/danielsaidi/BottomSheet",
+        "state": {
+          "branch": "master",
+          "revision": "a153134e4977321c1ea78d3a8b86f33264796ee3",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
