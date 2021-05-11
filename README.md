@@ -3,7 +3,7 @@
 <p align="center">
     <img src ="Resources/Logo.png" width=600 /><br />
     <img src="https://img.shields.io/github/v/release/danielsaidi/BottomSheet?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/cocoapods/p/BottomSheet.svg?style=flat" alt="Platform" />
+    <img src="https://img.shields.io/cocoapods/p/DSBottomSheet.svg?style=flat" alt="Platform" />
     <img src="https://img.shields.io/badge/Swift-5.3-orange.svg" alt="Swift 5.3" />
     <img src="https://img.shields.io/github/license/danielsaidi/BottomSheet" alt="MIT License" />
     <a href="https://twitter.com/danielsaidi">
@@ -100,9 +100,7 @@ Just open the `Demo` project and run the app.
 
 ## Acknowledgements
 
-This library is based on [this amazing gist][MecidGist] by [@mecid][Mecid]. 
-
-It would not have been made if he had not created the original implementation.  
+This library is based on [this amazing gist][MecidGist] by [@mecid][Mecid]. It would not have been made without him, so big thanks for putting that gist out into the world.
 
 
 ## Contact me
