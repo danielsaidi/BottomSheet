@@ -1,10 +1,10 @@
 // swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "BottomSheet",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v13)
     ],
@@ -17,7 +17,9 @@ let package = Package(
     targets: [
         .target(
             name: "BottomSheet",
-            dependencies: []),
+            dependencies: [],
+            exclude: ["Bundle/Bundle+Module.swift"],
+            resources: [.process("Resources")]),
         .testTarget(
             name: "BottomSheetTests",
             dependencies: ["BottomSheet"])

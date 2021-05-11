@@ -32,7 +32,7 @@ https://github.com/danielsaidi/BottomSheet.git
 ### CocoaPods
 
 ```
-pod BottomSheet
+pod DSBottomSheet
 ```
 
 
@@ -84,6 +84,13 @@ You can set these to control how tall your sheet can become and how much it can 
 You can define your own bottom sheet and ottom sheet handle styles and apply them when creating a sheet.
 
 
+## Important
+
+This library uses resource-based colors, which aren't available to SwiftUI previews outside of this library.
+
+Make sure to always use the `.preview` style when previewing a sheet.
+
+
 ## Demo app
 
 This repo contains a basic demo app that demonstrates how to use the bottom sheet.
@@ -93,7 +100,9 @@ Just open the `Demo` project and run the app.
 
 ## Acknowledgements
 
-This library is based on [this amazing gist][MecidGist] by [@mecid][Mecid].
+This library is based on [this amazing gist][MecidGist] by [@mecid][Mecid]. 
+
+It would not have been made if he had not created the original implementation.  
 
 
 ## Contact me

@@ -1,7 +1,7 @@
-    import XCTest
-    @testable import BottomSheet
+import XCTest
+@testable import BottomSheet
 
-    final class BottomSheetTests: XCTestCase {
-        
-        func testExample() {}
-    }
+final class BottomSheetTests: XCTestCase {
+    
+    func testExample() {}
+}

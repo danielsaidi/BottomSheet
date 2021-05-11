@@ -22,7 +22,7 @@ public struct BottomSheetStyle {
     ///   - snapRatio: The drag gesture snap ratio in percent of the max height, after which the sheet slides to the full height
     ///   - handleStyle: The bottom sheet's handle style
     public init(
-        color: Color = Color("Sheet"),
+        color: Color = .bottomSheet,
         cornerRadius: CGFloat = 16,
         modifier: @escaping Modifier = BottomSheetStyle.standardModifier,
         snapRatio: CGFloat = 0.25,
