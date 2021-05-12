@@ -13,6 +13,7 @@
 		A99F2760264B49A60015B9D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99F275F264B49A60015B9D2 /* Preview Assets.xcassets */; };
 		A99F2769264B4A330015B9D2 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = A99F2768264B4A330015B9D2 /* BottomSheet */; };
 		A99F276B264B4A410015B9D2 /* DemoStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F276A264B4A410015B9D2 /* DemoStyles.swift */; };
+		A99F276F264B95550015B9D2 /* DemoSheetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F276E264B95550015B9D2 /* DemoSheetContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		A99F275F264B49A60015B9D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A99F2761264B49A60015B9D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99F276A264B4A410015B9D2 /* DemoStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoStyles.swift; sourceTree = "<group>"; };
+		A99F276E264B95550015B9D2 /* DemoSheetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSheetContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				A99F275C264B49A60015B9D2 /* Assets.xcassets */,
 				A99F275A264B49A40015B9D2 /* ContentView.swift */,
+				A99F276E264B95550015B9D2 /* DemoSheetContent.swift */,
 				A99F2758264B49A40015B9D2 /* DemoApp.swift */,
 				A99F276A264B4A410015B9D2 /* DemoStyles.swift */,
 				A99F2761264B49A60015B9D2 /* Info.plist */,
@@ -105,6 +108,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = "Daniel Saidi";
 				TargetAttributes = {
 					A99F2754264B49A40015B9D2 = {
 						CreatedOnToolsVersion = 12.5;
@@ -149,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99F276F264B95550015B9D2 /* DemoSheetContent.swift in Sources */,
 				A99F275B264B49A40015B9D2 /* ContentView.swift in Sources */,
 				A99F2759264B49A40015B9D2 /* DemoApp.swift in Sources */,
 				A99F276B264B4A410015B9D2 /* DemoStyles.swift in Sources */,

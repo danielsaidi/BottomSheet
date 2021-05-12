@@ -33,12 +33,12 @@ struct ContentView: View {
                     sheetStyleButton("(Demo) Larger Corner Radius", style: .demoRound)
                 }
                 
-                Section(header: Text("Handle Styles").frame(height: 1), footer: bottomPadding) {
+                Section(header: Text("Sheet Handle Styles").frame(height: 1), footer: bottomPadding) {
                     sheetHandleStyleButton("Standard", style: .standard)
                     sheetHandleStyleButton("(Demo) Red", style: .demoRed)
                     sheetHandleStyleButton("(Demo) Green", style: .demoGreen)
                     sheetHandleStyleButton("(Demo) Blue", style: .demoBlue)
-                    sheetHandleStyleButton("(Demo) Larger Corner Radius", style: .demoRound)
+                    sheetHandleStyleButton("(Demo) Large Yellow", style: .demoLargeYellow)
                 }
             }
             .buttonStyle(PlainButtonStyle())
@@ -61,33 +61,28 @@ private extension ContentView {
             minHeight: useTallerMinHeight ? .points(300) : .points(150),
             maxHeight: useShorterMaxHeight ? .percentage(0.5) : .available,
             style: sheetStyle) {
-            sheetContent
+            DemoSheetContent(style: sheetStyle)
         }
     }
     
-    var sheetContent: some View {
-        List {
-            ForEach(0..<100, id: \.self) {
-                Text("\($0)")
-            }.listRowBackground(sheetStyle.color)
+    func listButton(_ text: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack {
+                Text(text)
+                Spacer()
+            }.background(Color.white.opacity(0.0001))
         }
     }
     
     func sheetStyleButton(_ text: String, style: BottomSheetStyle) -> some View {
-        Button(action: { sheetStyle = style }) {
-            HStack {
-                Text(text)
-                Spacer()
-            }.background(Color.white.opacity(0.0001))
+        listButton(text) {
+            sheetStyle = style
         }
     }
     
     func sheetHandleStyleButton(_ text: String, style: BottomSheetHandleStyle) -> some View {
-        Button(action: { sheetStyle = BottomSheetStyle(handleStyle: style) }) {
-            HStack {
-                Text(text)
-                Spacer()
-            }.background(Color.white.opacity(0.0001))
+        listButton(text) {
+            sheetStyle = BottomSheetStyle(handleStyle: style)
         }
     }
 }

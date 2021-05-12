@@ -41,7 +41,11 @@ extension BottomSheetHandleStyle {
         BottomSheetHandleStyle(color: .blue)
     }
     
-    static var demoRound: BottomSheetHandleStyle {
-        BottomSheetHandleStyle(cornerRadius: 40)
+    static var demoLargeYellow: BottomSheetHandleStyle {
+        BottomSheetHandleStyle(
+            color: .yellow,
+            width: 250,
+            height: 40,
+            cornerRadius: 20)
     }
 }
