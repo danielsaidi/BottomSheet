@@ -14,8 +14,6 @@ struct ContentView: View {
     @State private var isExpanded = false
     @State private var useTallerMinHeight = false
     @State private var useShorterMaxHeight = false
-    @State private var maxHeight = BottomSheetHeight.available
-    @State private var minHeight = BottomSheetHeight.points(150)
     @State private var sheetStyle = BottomSheetStyle.standard
     
     var body: some View {
@@ -23,18 +21,25 @@ struct ContentView: View {
             List {
                 Section(header: Text("").frame(height: 1)) {
                     Toggle("Is expanded", isOn: $isExpanded)
-                    Toggle("Taller min height", isOn: $useTallerMinHeight)
-                    Toggle("Shorter max height", isOn: $useShorterMaxHeight)
+                    Toggle("Use taller min height", isOn: $useTallerMinHeight)
+                    Toggle("Use shorter max height", isOn: $useShorterMaxHeight)
                 }
                 
-                Section(header: Text("Styles").frame(height: 1)) {
-                    styleButton("Standard", style: .standard)
-                    styleButton("(Demo) Red", style: .red)
-                    styleButton("(Demo) Green", style: .green)
-                    styleButton("(Demo) Blue", style: .blue)
-                    styleButton("(Demo) Larger Corner Radius", style: .round)
+                Section(header: Text("Sheet Styles").frame(height: 1)) {
+                    sheetStyleButton("Standard", style: .standard)
+                    sheetStyleButton("(Demo) Red", style: .red)
+                    sheetStyleButton("(Demo) Green", style: .green)
+                    sheetStyleButton("(Demo) Blue", style: .blue)
+                    sheetStyleButton("(Demo) Larger Corner Radius", style: .round)
                 }
                 
+                Section(header: Text("Handle Styles").frame(height: 1), footer: bottomPadding) {
+                    sheetHandleStyleButton("Standard", style: .standard)
+                    sheetHandleStyleButton("(Demo) Red", style: .red)
+                    sheetHandleStyleButton("(Demo) Green", style: .green)
+                    sheetHandleStyleButton("(Demo) Blue", style: .blue)
+                    sheetHandleStyleButton("(Demo) Larger Corner Radius", style: .round)
+                }
             }
             .buttonStyle(PlainButtonStyle())
             .navigationTitle("Bottom Sheet Demo")
@@ -45,6 +50,10 @@ struct ContentView: View {
 }
 
 private extension ContentView {
+    
+    var bottomPadding: some View {
+        Color.clear.frame(height: useTallerMinHeight ? 280 : 130)
+    }
     
     var sheet: some BottomSheetView {
         BottomSheet(
@@ -64,8 +73,17 @@ private extension ContentView {
         }
     }
     
-    func styleButton(_ text: String, style: BottomSheetStyle) -> some View {
+    func sheetStyleButton(_ text: String, style: BottomSheetStyle) -> some View {
         Button(action: { sheetStyle = style }) {
+            HStack {
+                Text(text)
+                Spacer()
+            }.background(Color.white.opacity(0.0001))
+        }
+    }
+    
+    func sheetHandleStyleButton(_ text: String, style: BottomSheetHandleStyle) -> some View {
+        Button(action: { sheetStyle = BottomSheetStyle(handleStyle: style) }) {
             HStack {
                 Text(text)
                 Spacer()

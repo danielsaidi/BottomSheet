@@ -26,3 +26,22 @@ extension BottomSheetStyle {
         BottomSheetStyle(cornerRadius: 40)
     }
 }
+
+extension BottomSheetHandleStyle {
+    
+    static var red: BottomSheetHandleStyle {
+        BottomSheetHandleStyle(color: .red)
+    }
+    
+    static var green: BottomSheetHandleStyle {
+        BottomSheetHandleStyle(color: .green)
+    }
+    
+    static var blue: BottomSheetHandleStyle {
+        BottomSheetHandleStyle(color: .blue)
+    }
+    
+    static var round: BottomSheetHandleStyle {
+        BottomSheetHandleStyle(cornerRadius: 40)
+    }
+}
