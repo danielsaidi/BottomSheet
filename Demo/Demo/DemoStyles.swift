@@ -1,5 +1,5 @@
 //
-//  SheetStyles.swift
+//  DemoStyles.swift
 //  Demo
 //
 //  Created by Daniel Saidi on 2021-05-11.
@@ -10,38 +10,38 @@ import BottomSheet
 
 extension BottomSheetStyle {
     
-    static var red: BottomSheetStyle {
+    static var demoRed: BottomSheetStyle {
         BottomSheetStyle(color: .red)
     }
     
-    static var green: BottomSheetStyle {
+    static var demoGreen: BottomSheetStyle {
         BottomSheetStyle(color: .green)
     }
     
-    static var blue: BottomSheetStyle {
+    static var demoBlue: BottomSheetStyle {
         BottomSheetStyle(color: .blue)
     }
     
-    static var round: BottomSheetStyle {
+    static var demoRound: BottomSheetStyle {
         BottomSheetStyle(cornerRadius: 40)
     }
 }
 
 extension BottomSheetHandleStyle {
     
-    static var red: BottomSheetHandleStyle {
+    static var demoRed: BottomSheetHandleStyle {
         BottomSheetHandleStyle(color: .red)
     }
     
-    static var green: BottomSheetHandleStyle {
+    static var demoGreen: BottomSheetHandleStyle {
         BottomSheetHandleStyle(color: .green)
     }
     
-    static var blue: BottomSheetHandleStyle {
+    static var demoBlue: BottomSheetHandleStyle {
         BottomSheetHandleStyle(color: .blue)
     }
     
-    static var round: BottomSheetHandleStyle {
+    static var demoRound: BottomSheetHandleStyle {
         BottomSheetHandleStyle(cornerRadius: 40)
     }
 }

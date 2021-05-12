@@ -27,18 +27,18 @@ struct ContentView: View {
                 
                 Section(header: Text("Sheet Styles").frame(height: 1)) {
                     sheetStyleButton("Standard", style: .standard)
-                    sheetStyleButton("(Demo) Red", style: .red)
-                    sheetStyleButton("(Demo) Green", style: .green)
-                    sheetStyleButton("(Demo) Blue", style: .blue)
-                    sheetStyleButton("(Demo) Larger Corner Radius", style: .round)
+                    sheetStyleButton("(Demo) Red", style: .demoRed)
+                    sheetStyleButton("(Demo) Green", style: .demoGreen)
+                    sheetStyleButton("(Demo) Blue", style: .demoBlue)
+                    sheetStyleButton("(Demo) Larger Corner Radius", style: .demoRound)
                 }
                 
                 Section(header: Text("Handle Styles").frame(height: 1), footer: bottomPadding) {
                     sheetHandleStyleButton("Standard", style: .standard)
-                    sheetHandleStyleButton("(Demo) Red", style: .red)
-                    sheetHandleStyleButton("(Demo) Green", style: .green)
-                    sheetHandleStyleButton("(Demo) Blue", style: .blue)
-                    sheetHandleStyleButton("(Demo) Larger Corner Radius", style: .round)
+                    sheetHandleStyleButton("(Demo) Red", style: .demoRed)
+                    sheetHandleStyleButton("(Demo) Green", style: .demoGreen)
+                    sheetHandleStyleButton("(Demo) Blue", style: .demoBlue)
+                    sheetHandleStyleButton("(Demo) Larger Corner Radius", style: .demoRound)
                 }
             }
             .buttonStyle(PlainButtonStyle())
