@@ -14,11 +14,15 @@
 
 ## About BottomSheet
 
-`BottomSheet` makes it easy to add custom bottom sheets to your `SwiftUI` apps. It can look like this...or completely different:
+`BottomSheet` makes it easy to add custom bottom sheets to your `SwiftUI` apps. 
+
+The result can look like this...or completely different:
 
 <p align="center">
     <img src="Resources/Demo.gif" width=300 />
 </p>
+
+These sheets have a default style, but can be customized to fit your specific app. 
 
 
 ## Installation
@@ -49,7 +53,7 @@ let sheet = BottomSheet(
 )
 ```
 
-One you have a sheet view, you can add it to any view, using the `bottomSheet` modifier: 
+Once you have a sheet view, you can add it to any view, using the `bottomSheet` modifier: 
 
 ```swift
 List(items) { item
