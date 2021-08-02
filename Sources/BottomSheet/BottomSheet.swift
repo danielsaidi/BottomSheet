@@ -64,13 +64,15 @@ public struct BottomSheet<Content: View>: BottomSheetView {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 handle.padding()
-                content
+                // Add padding to content so that content does not go into safe area
+                content.padding(.bottom, geo.safeAreaInsets.bottom)
             }
             .frame(width: geo.size.width, height: maxHeight(in: geo), alignment: .top)
             .background(style.color)
             .cornerRadius(style.cornerRadius)
             .modified(with: style.modifier)
-            .frame(height: geo.size.height, alignment: .bottom)
+                    // Add safe area inset to frame height in order to 'overflow' to the bottom of the screen
+            .frame(height: geo.size.height + geo.safeAreaInsets.bottom, alignment: .bottom)
             .offset(y: max(offset(for: geo) + translation, 0))
             .animation(.interactiveSpring())
             .gesture(
@@ -84,7 +86,7 @@ public struct BottomSheet<Content: View>: BottomSheetView {
                     isExpanded = value.translation.height < 0
                 }
             )
-        }.edgesIgnoringSafeArea(.bottom)
+        }
     }
 }
 
