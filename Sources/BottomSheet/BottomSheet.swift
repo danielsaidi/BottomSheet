@@ -121,9 +121,73 @@ private extension View {
 }
 
 struct BottomSheet_Previews: PreviewProvider {
+    static var twentyItems: some View {
+        VStack {
+            ForEach(1...20, id: \.self) { i in
+                HStack {
+                    Text("Item \(i)")
+                    Spacer()
+                    Button(
+                        action: { print("Clicked \(i)") },
+                        label: {
+                            Image(systemName: "tray.and.arrow.down.fill")
+                        })
+                }
+                .padding()
+                .frame(minHeight: 50)
+            }
+            // The bottom line
+            Color.pink.frame(height: 1).id(-123)
+        }
+    }
+    static var twentyItemsList: some View {
+        List {
+            ForEach(1...20, id: \.self) { i in
+                Text("Item \(i)")
+            }
+            // The bottom line
+            Color.pink.frame(height: 1).id(-123)
+        }
+    }
     static var previews: some View {
-        BottomSheet(isExpanded: .constant(true), maxHeight: .points(500)) {
-            Color.red
+        Group {
+            
+            //
+            // ScrollView
+            if #available(iOS 14.0, *) {
+                BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                    ScrollViewReader { scroll in
+                        ScrollView {
+                            twentyItems.onAppear {
+                                // Scroll to bottom in order to see if the padding is applied correctly
+                                // Oddly, this renders only correctly if you run the live preview. In the static preview, the last element is still stuck in the safe area, or even below...
+                                scroll.scrollTo(-123)
+                            }
+                        }
+                    }
+                }
+            }
+            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                ScrollView {
+                    twentyItems
+                }
+            }
+            
+            //
+            // List
+            if #available(iOS 14.0, *) {
+                BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                    ScrollViewReader { scroll in
+                        twentyItemsList.onAppear {
+                            // Scroll to bottom in order to see if the padding is applied correctly
+                            scroll.scrollTo(-123)
+                        }
+                    }
+                }
+            }
+            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                    twentyItemsList
+            }
         }
     }
 }
