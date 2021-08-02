@@ -94,8 +94,8 @@ private extension BottomSheet {
     
     func height(of height: BottomSheetHeight, in geo: GeometryProxy) -> CGFloat {
         switch height {
-        case .available: return geo.size.height
-        case .percentage(let ratio): return ratio * geo.size.height
+        case .available: return geo.size.height + geo.safeAreaInsets.bottom
+        case .percentage(let ratio): return ratio * (geo.size.height + geo.safeAreaInsets.bottom)
         case .points(let points): return points
         }
     }
@@ -155,7 +155,7 @@ struct BottomSheet_Previews: PreviewProvider {
             //
             // ScrollView
             if #available(iOS 14.0, *) {
-                BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                BottomSheet(isExpanded: .constant(true), maxHeight: .available) {
                     ScrollViewReader { scroll in
                         ScrollView {
                             twentyItems.onAppear {
@@ -167,7 +167,7 @@ struct BottomSheet_Previews: PreviewProvider {
                     }
                 }
             }
-            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(1)) {
                 ScrollView {
                     twentyItems
                 }
