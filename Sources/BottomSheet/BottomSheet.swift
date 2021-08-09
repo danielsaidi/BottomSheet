@@ -64,13 +64,15 @@ public struct BottomSheet<Content: View>: BottomSheetView {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 handle.padding()
-                content
+                // Add padding to content so that content does not go into safe area
+                content.padding(.bottom, geo.safeAreaInsets.bottom)
             }
             .frame(width: geo.size.width, height: maxHeight(in: geo), alignment: .top)
             .background(style.color)
             .cornerRadius(style.cornerRadius)
             .modified(with: style.modifier)
-            .frame(height: geo.size.height, alignment: .bottom)
+                    // Add safe area inset to frame height in order to 'overflow' to the bottom of the screen
+            .frame(height: geo.size.height + geo.safeAreaInsets.bottom, alignment: .bottom)
             .offset(y: max(offset(for: geo) + translation, 0))
             .animation(.interactiveSpring())
             .gesture(
@@ -84,7 +86,7 @@ public struct BottomSheet<Content: View>: BottomSheetView {
                     isExpanded = value.translation.height < 0
                 }
             )
-        }.edgesIgnoringSafeArea(.bottom)
+        }
     }
 }
 
@@ -92,8 +94,8 @@ private extension BottomSheet {
     
     func height(of height: BottomSheetHeight, in geo: GeometryProxy) -> CGFloat {
         switch height {
-        case .available: return geo.size.height
-        case .percentage(let ratio): return ratio * geo.size.height
+        case .available: return geo.size.height + geo.safeAreaInsets.bottom
+        case .percentage(let ratio): return ratio * (geo.size.height + geo.safeAreaInsets.bottom)
         case .points(let points): return points
         }
     }
@@ -119,9 +121,73 @@ private extension View {
 }
 
 struct BottomSheet_Previews: PreviewProvider {
+    static var twentyItems: some View {
+        VStack {
+            ForEach(1...20, id: \.self) { i in
+                HStack {
+                    Text("Item \(i)")
+                    Spacer()
+                    Button(
+                        action: { print("Clicked \(i)") },
+                        label: {
+                            Image(systemName: "tray.and.arrow.down.fill")
+                        })
+                }
+                .padding()
+                .frame(minHeight: 50)
+            }
+            // The bottom line
+            Color.pink.frame(height: 1).id(-123)
+        }
+    }
+    static var twentyItemsList: some View {
+        List {
+            ForEach(1...20, id: \.self) { i in
+                Text("Item \(i)")
+            }
+            // The bottom line
+            Color.pink.frame(height: 1).id(-123)
+        }
+    }
     static var previews: some View {
-        BottomSheet(isExpanded: .constant(true), maxHeight: .points(500)) {
-            Color.red
+        Group {
+            
+            //
+            // ScrollView
+            if #available(iOS 14.0, *) {
+                BottomSheet(isExpanded: .constant(true), maxHeight: .available) {
+                    ScrollViewReader { scroll in
+                        ScrollView {
+                            twentyItems.onAppear {
+                                // Scroll to bottom in order to see if the padding is applied correctly
+                                // Oddly, this renders only correctly if you run the live preview. In the static preview, the last element is still stuck in the safe area, or even below...
+                                scroll.scrollTo(-123)
+                            }
+                        }
+                    }
+                }
+            }
+            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(1)) {
+                ScrollView {
+                    twentyItems
+                }
+            }
+            
+            //
+            // List
+            if #available(iOS 14.0, *) {
+                BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                    ScrollViewReader { scroll in
+                        twentyItemsList.onAppear {
+                            // Scroll to bottom in order to see if the padding is applied correctly
+                            scroll.scrollTo(-123)
+                        }
+                    }
+                }
+            }
+            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
+                    twentyItemsList
+            }
         }
     }
 }
