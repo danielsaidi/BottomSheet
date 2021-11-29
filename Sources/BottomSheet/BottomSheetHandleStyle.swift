@@ -26,11 +26,13 @@ public struct BottomSheetHandleStyle {
         dividerColor: Color? = nil,
         width: CGFloat = 50,
         height: CGFloat = 6,
+        padding: EdgeInsets? = nil,
         cornerRadius: CGFloat = 16) {
         self.backgroundColor = backgroundColor
         self.cornerRadius = cornerRadius
         self.dividerColor = dividerColor
         self.handleColor = handleColor
+        self.padding = padding
         self.size = CGSize(width: width, height: height)
     }
     
@@ -45,6 +47,9 @@ public struct BottomSheetHandleStyle {
     
     /// The color of the handle
     public let handleColor: Color
+    
+    /// The padding to add around the handle
+    public let padding: EdgeInsets?
     
     /// The size of the handle
     public let size: CGSize

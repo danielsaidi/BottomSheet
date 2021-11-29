@@ -13,6 +13,7 @@ public extension BottomSheetHandleStyle {
         self.handleColor = color
         self.backgroundColor = Color.white.opacity(0.0001)
         self.size = CGSize(width: width, height: height)
+        self.padding = nil
     }
     
     @available(*, deprecated, renamed: "handleColor")
