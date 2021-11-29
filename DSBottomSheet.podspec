@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DSBottomSheet'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.swift_versions   = ['5.3']
   s.summary          = 'DSBottomSheet makes it easy to add custom bottom sheets to your SwiftUI apps.'
 
