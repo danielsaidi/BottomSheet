@@ -19,4 +19,17 @@ public extension View {
             sheet
         }
     }
+    
+    /**
+     Add a bottom sheet above the view, if the provided bool
+     `condition` is met.
+     */
+    @ViewBuilder
+    func bottomSheet<Sheet: BottomSheetView>(_ sheet: Sheet, if condition: Bool) -> some View {
+        if condition {
+            self.bottomSheet(sheet)
+        } else {
+            self
+        }
+    }
 }
