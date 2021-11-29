@@ -141,12 +141,12 @@ struct BottomSheet_Previews: PreviewProvider {
         
         var twentyItems: some View {
             VStack {
-                ForEach(1...20, id: \.self) { i in
+                ForEach(1...20, id: \.self) { index in
                     HStack {
-                        Text("Item \(i)")
+                        Text("Item \(index)")
                         Spacer()
                         Button(
-                            action: { print("Clicked \(i)") },
+                            action: { print("Clicked \(index)") },
                             label: {
                                 Image(systemName: "tray.and.arrow.down.fill")
                             })
@@ -161,8 +161,8 @@ struct BottomSheet_Previews: PreviewProvider {
         
         var twentyItemsList: some View {
             List {
-                ForEach(1...20, id: \.self) { i in
-                    Text("Item \(i)")
+                ForEach(1...20, id: \.self) { index in
+                    Text("Item \(index)")
                 }
             }
         }
