@@ -11,6 +11,7 @@ import BottomSheet
 
 struct ContentView: View {
     
+    @State private var isVisible = true
     @State private var isExpanded = false
     @State private var useTallerMinHeight = false
     @State private var useShorterMaxHeight = false
@@ -20,6 +21,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 Section(header: Text("").frame(height: 1)) {
+                    Toggle("Is visible", isOn: $isVisible)
                     Toggle("Is expanded", isOn: $isExpanded)
                     Toggle("Use taller min height", isOn: $useTallerMinHeight)
                     Toggle("Use shorter max height", isOn: $useShorterMaxHeight)
@@ -45,7 +47,8 @@ struct ContentView: View {
             .navigationTitle("Bottom Sheet Demo")
             .listStyle(InsetGroupedListStyle())
         }
-        .bottomSheet(sheet)
+        .bottomSheet(sheet, if: isVisible)
+        .navigationViewStyle(.stack)
     }
 }
 

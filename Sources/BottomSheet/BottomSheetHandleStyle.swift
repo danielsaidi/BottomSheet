@@ -22,8 +22,8 @@ public struct BottomSheetHandleStyle {
     ///   - cornerRadius: The corner radius of the handle
     public init(
         handleColor: Color = Color.secondary,
-        backgroundColor: Color = Color.white.opacity(0.0001),
-        dividerColor: Color? = nil,
+        backgroundColor: Color = Color.primary.opacity(0.02),
+        dividerColor: Color? = Color.primary.opacity(0.1),
         width: CGFloat = 50,
         height: CGFloat = 6,
         padding: EdgeInsets? = nil,

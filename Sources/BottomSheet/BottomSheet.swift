@@ -59,7 +59,6 @@ public struct BottomSheet<Content: View>: BottomSheetView {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 handle(for: geo)
-                Divider().background(style.handleStyle.dividerColor)
                 contentView(for: geo)
             }
             .frame(width: geo.size.width, height: maxHeight(in: geo), alignment: .top)

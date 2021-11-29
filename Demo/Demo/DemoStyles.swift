@@ -30,20 +30,20 @@ extension BottomSheetStyle {
 extension BottomSheetHandleStyle {
     
     static var demoRed: BottomSheetHandleStyle {
-        BottomSheetHandleStyle(color: .red)
+        BottomSheetHandleStyle(handleColor: .red)
     }
     
     static var demoGreen: BottomSheetHandleStyle {
-        BottomSheetHandleStyle(color: .green)
+        BottomSheetHandleStyle(handleColor: .green)
     }
     
     static var demoBlue: BottomSheetHandleStyle {
-        BottomSheetHandleStyle(color: .blue)
+        BottomSheetHandleStyle(handleColor: .blue)
     }
     
     static var demoLargeYellow: BottomSheetHandleStyle {
         BottomSheetHandleStyle(
-            color: .yellow,
+            handleColor: .yellow,
             width: 250,
             height: 40,
             cornerRadius: 20)
