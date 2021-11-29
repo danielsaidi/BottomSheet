@@ -3,7 +3,7 @@
 
 ## 0.2.0
 
-This release tweaks the design and the behavior of the bottom sheet.
+This release adds macOS support and tweaks the design and behavior of the bottom sheet.
 
 The handle was previously placed in a non-designable area, under which the sheet content scrolled.
 
@@ -11,6 +11,7 @@ Now, the area has a divider that separates the handle from the content, with the
 
 ### 💥 New Features
 
+* The library now compiles for macOS.
 * There is a new `BottomSheetHandleBar` view.
 * `BottomSheetHandleStyle` has a new `backgroundColor` property.
 * `BottomSheetHandleStyle` has a new `dividerColor` property.
