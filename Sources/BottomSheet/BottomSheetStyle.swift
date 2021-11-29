@@ -19,7 +19,7 @@ public struct BottomSheetStyle {
     ///   - color: The color of the sheet
     ///   - cornerRadius: The corner radius of the sheet
     ///   - modifier: The modifier to apply to the sheet
-    ///   - snapRatio: The drag gesture snap ratio in percent of the max height, after which the sheet slides to the full height
+    ///   - snapRatio: The drag gesture snap ratio of the max height, after which the sheet slides to the full height
     ///   - handleStyle: The bottom sheet's handle style
     public init(
         color: Color = .bottomSheet,

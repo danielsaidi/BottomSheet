@@ -22,12 +22,13 @@ public struct BottomSheetHandle: View {
     
     public var body: some View {
         RoundedRectangle(cornerRadius: style.cornerRadius)
-            .fill(style.color)
+            .fill(style.handleColor)
             .frame(width: style.size.width, height: style.size.height)
     }
 }
 
 struct BottomSheetHandle_Previews: PreviewProvider {
+    
     static var previews: some View {
         BottomSheetHandle()
     }

@@ -21,20 +21,25 @@ public struct BottomSheetHandleStyle {
     ///   - height: The height of the handle
     ///   - cornerRadius: The corner radius of the handle
     public init(
-        color: Color = Color.secondary,
+        handleColor: Color = Color.secondary,
+        backgroundColor: Color = Color.white.opacity(0.0001),
         width: CGFloat = 50,
         height: CGFloat = 6,
         cornerRadius: CGFloat = 16) {
-        self.color = color
+        self.handleColor = handleColor
+        self.backgroundColor = backgroundColor
         self.size = CGSize(width: width, height: height)
         self.cornerRadius = cornerRadius
     }
     
-    /// The color of the handle
-    public let color: Color
+    /// The color of the handle background
+    public let backgroundColor: Color
     
     /// The corner radius of the handle
     public let cornerRadius: CGFloat
+    
+    /// The color of the handle
+    public let handleColor: Color
     
     /// The size of the handle
     public let size: CGSize
