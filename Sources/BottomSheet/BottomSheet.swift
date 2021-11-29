@@ -55,17 +55,12 @@ public struct BottomSheet<Content: View>: BottomSheetView {
     @Binding private var isExpanded: Bool
     @GestureState private var translation: CGFloat = 0
 
-    private var handle: some View {
-        BottomSheetHandle(style: style.handleStyle)
-            .onTapGesture { self.isExpanded.toggle() }
-    }
-
     public var body: some View {
         GeometryReader { geo in
             VStack(spacing: 0) {
-                handle.padding()
-                // Add padding to content so that content does not go into safe area
-                content.padding(.bottom, geo.safeAreaInsets.bottom)
+                handle(for: geo)
+                Divider()
+                contentView(for: geo)
             }
             .frame(width: geo.size.width, height: maxHeight(in: geo), alignment: .top)
             .background(style.color)
@@ -75,6 +70,24 @@ public struct BottomSheet<Content: View>: BottomSheetView {
             .frame(height: geo.size.height + geo.safeAreaInsets.bottom, alignment: .bottom)
             .offset(y: max(offset(for: geo) + translation, 0))
             .animation(.interactiveSpring())
+            
+        }
+    }
+}
+
+private extension BottomSheet {
+    
+    func contentView(for geo: GeometryProxy) -> some View {
+        content
+            .padding(.bottom, geo.safeAreaInsets.bottom)
+    }
+    
+    func handle(for geo: GeometryProxy) -> some View {
+        BottomSheetHandle(style: style.handleStyle)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.white.opacity(0.0001))
+            .onTapGesture(perform: toggleIsExpanded)
             .gesture(
                 DragGesture().updating($translation) { value, state, _ in
                     state = value.translation.height
@@ -86,7 +99,6 @@ public struct BottomSheet<Content: View>: BottomSheetView {
                     isExpanded = value.translation.height < 0
                 }
             )
-        }
     }
 }
 
@@ -111,6 +123,10 @@ private extension BottomSheet {
     func offset(for geo: GeometryProxy) -> CGFloat {
         isExpanded ? 0 : maxHeight(in: geo) - minHeight(in: geo)
     }
+    
+    func toggleIsExpanded() {
+        isExpanded.toggle()
+    }
 }
 
 private extension View {
@@ -121,73 +137,83 @@ private extension View {
 }
 
 struct BottomSheet_Previews: PreviewProvider {
-    static var twentyItems: some View {
-        VStack {
-            ForEach(1...20, id: \.self) { i in
-                HStack {
-                    Text("Item \(i)")
-                    Spacer()
-                    Button(
-                        action: { print("Clicked \(i)") },
-                        label: {
-                            Image(systemName: "tray.and.arrow.down.fill")
-                        })
+    
+    struct Preview: View {
+        
+        @State private var isExpanded = false
+        
+        var twentyItems: some View {
+            VStack {
+                ForEach(1...20, id: \.self) { i in
+                    HStack {
+                        Text("Item \(i)")
+                        Spacer()
+                        Button(
+                            action: { print("Clicked \(i)") },
+                            label: {
+                                Image(systemName: "tray.and.arrow.down.fill")
+                            })
+                    }
+                    .padding()
+                    .frame(minHeight: 50)
                 }
-                .padding()
-                .frame(minHeight: 50)
+                // The bottom line
+                Color.pink.frame(height: 1).id(-123)
             }
-            // The bottom line
-            Color.pink.frame(height: 1).id(-123)
         }
-    }
-    static var twentyItemsList: some View {
-        List {
-            ForEach(1...20, id: \.self) { i in
-                Text("Item \(i)")
+        
+        var twentyItemsList: some View {
+            List {
+                ForEach(1...20, id: \.self) { i in
+                    Text("Item \(i)")
+                }
             }
-            // The bottom line
-            Color.pink.frame(height: 1).id(-123)
         }
-    }
-    static var previews: some View {
-        Group {
-            
-            //
-            // ScrollView
-            if #available(iOS 14.0, *) {
-                BottomSheet(isExpanded: .constant(true), maxHeight: .available) {
-                    ScrollViewReader { scroll in
-                        ScrollView {
-                            twentyItems.onAppear {
+        
+        var body: some View {
+            Group {
+                
+                //
+                // ScrollView
+                if #available(iOS 14.0, *) {
+                    BottomSheet(isExpanded: $isExpanded, maxHeight: .available) {
+                        ScrollViewReader { scroll in
+                            ScrollView {
+                                twentyItems.onAppear {
+                                    // Scroll to bottom in order to see if the padding is applied correctly
+                                    // Oddly, this renders only correctly if you run the live preview. In the static preview, the last element is still stuck in the safe area, or even below...
+                                    scroll.scrollTo(-123)
+                                }
+                            }
+                        }
+                    }
+                }
+                BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(1)) {
+                    ScrollView {
+                        twentyItems
+                    }
+                }
+                
+                //
+                // List
+                if #available(iOS 14.0, *) {
+                    BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(0.6)) {
+                        ScrollViewReader { scroll in
+                            twentyItemsList.onAppear {
                                 // Scroll to bottom in order to see if the padding is applied correctly
-                                // Oddly, this renders only correctly if you run the live preview. In the static preview, the last element is still stuck in the safe area, or even below...
                                 scroll.scrollTo(-123)
                             }
                         }
                     }
                 }
-            }
-            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(1)) {
-                ScrollView {
-                    twentyItems
+                BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(0.6)) {
+                        twentyItemsList
                 }
-            }
-            
-            //
-            // List
-            if #available(iOS 14.0, *) {
-                BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
-                    ScrollViewReader { scroll in
-                        twentyItemsList.onAppear {
-                            // Scroll to bottom in order to see if the padding is applied correctly
-                            scroll.scrollTo(-123)
-                        }
-                    }
-                }
-            }
-            BottomSheet(isExpanded: .constant(true), maxHeight: .percentage(0.6)) {
-                    twentyItemsList
             }
         }
+    }
+    
+    static var previews: some View {
+        Preview()
     }
 }
