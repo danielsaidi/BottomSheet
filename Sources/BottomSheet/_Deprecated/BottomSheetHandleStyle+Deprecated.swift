@@ -8,10 +8,11 @@ public extension BottomSheetHandleStyle {
         width: CGFloat = 50,
         height: CGFloat = 6,
         cornerRadius: CGFloat = 16) {
+        self.cornerRadius = cornerRadius
+        self.dividerColor = nil
         self.handleColor = color
         self.backgroundColor = Color.white.opacity(0.0001)
         self.size = CGSize(width: width, height: height)
-        self.cornerRadius = cornerRadius
     }
     
     @available(*, deprecated, renamed: "handleColor")

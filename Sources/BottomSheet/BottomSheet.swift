@@ -59,7 +59,7 @@ public struct BottomSheet<Content: View>: BottomSheetView {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 handle(for: geo)
-                Divider()
+                Divider().background(style.handleStyle.dividerColor)
                 contentView(for: geo)
             }
             .frame(width: geo.size.width, height: maxHeight(in: geo), alignment: .top)
@@ -86,7 +86,7 @@ private extension BottomSheet {
         BottomSheetHandle(style: style.handleStyle)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color.white.opacity(0.0001))
+            .background(style.handleStyle.backgroundColor)
             .onTapGesture(perform: toggleIsExpanded)
             .gesture(
                 DragGesture().updating($translation) { value, state, _ in
@@ -188,6 +188,7 @@ struct BottomSheet_Previews: PreviewProvider {
                         }
                     }
                 }
+                
                 BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(1)) {
                     ScrollView {
                         twentyItems
@@ -206,6 +207,7 @@ struct BottomSheet_Previews: PreviewProvider {
                         }
                     }
                 }
+                
                 BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(0.6)) {
                         twentyItemsList
                 }

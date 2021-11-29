@@ -23,13 +23,15 @@ public struct BottomSheetHandleStyle {
     public init(
         handleColor: Color = Color.secondary,
         backgroundColor: Color = Color.white.opacity(0.0001),
+        dividerColor: Color? = nil,
         width: CGFloat = 50,
         height: CGFloat = 6,
         cornerRadius: CGFloat = 16) {
-        self.handleColor = handleColor
         self.backgroundColor = backgroundColor
-        self.size = CGSize(width: width, height: height)
         self.cornerRadius = cornerRadius
+        self.dividerColor = dividerColor
+        self.handleColor = handleColor
+        self.size = CGSize(width: width, height: height)
     }
     
     /// The color of the handle background
@@ -37,6 +39,9 @@ public struct BottomSheetHandleStyle {
     
     /// The corner radius of the handle
     public let cornerRadius: CGFloat
+    
+    /// The color of the handle divider
+    public let dividerColor: Color?
     
     /// The color of the handle
     public let handleColor: Color
