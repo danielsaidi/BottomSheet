@@ -83,10 +83,7 @@ private extension BottomSheet {
     }
     
     func handle(for geo: GeometryProxy) -> some View {
-        BottomSheetHandle(style: style.handleStyle)
-            .withHandlePadding(in: style.handleStyle)
-            .frame(maxWidth: .infinity)
-            .background(style.handleStyle.backgroundColor)
+        BottomSheetHandleBar(style: style.handleStyle)
             .onTapGesture(perform: toggleIsExpanded)
             .gesture(
                 DragGesture().updating($translation) { value, state, _ in
@@ -99,18 +96,6 @@ private extension BottomSheet {
                     isExpanded = value.translation.height < 0
                 }
             )
-    }
-}
-
-extension View {
-    
-    @ViewBuilder
-    func withHandlePadding(in style: BottomSheetHandleStyle) -> some View {
-        if let padding = style.padding {
-            self.padding(padding)
-        } else {
-            self.padding()
-        }
     }
 }
 
