@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A907FB5C2786526B003F7EC7 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = A907FB5B2786526B003F7EC7 /* BottomSheet */; };
 		A99F2759264B49A40015B9D2 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F2758264B49A40015B9D2 /* DemoApp.swift */; };
 		A99F275B264B49A40015B9D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F275A264B49A40015B9D2 /* ContentView.swift */; };
 		A99F275D264B49A60015B9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99F275C264B49A60015B9D2 /* Assets.xcassets */; };
 		A99F2760264B49A60015B9D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99F275F264B49A60015B9D2 /* Preview Assets.xcassets */; };
-		A99F2769264B4A330015B9D2 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = A99F2768264B4A330015B9D2 /* BottomSheet */; };
 		A99F276B264B4A410015B9D2 /* DemoStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F276A264B4A410015B9D2 /* DemoStyles.swift */; };
 		A99F276F264B95550015B9D2 /* DemoSheetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99F276E264B95550015B9D2 /* DemoSheetContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A907FB592786525C003F7EC7 /* bottomsheet */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = bottomsheet; path = ..; sourceTree = "<group>"; };
 		A99F2755264B49A40015B9D2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99F2758264B49A40015B9D2 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		A99F275A264B49A40015B9D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,18 +33,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A99F2769264B4A330015B9D2 /* BottomSheet in Frameworks */,
+				A907FB5C2786526B003F7EC7 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A907FB582786525C003F7EC7 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A907FB592786525C003F7EC7 /* bottomsheet */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		A907FB5A2786526B003F7EC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A99F274C264B49A40015B9D2 = {
 			isa = PBXGroup;
 			children = (
+				A907FB582786525C003F7EC7 /* Packages */,
 				A99F2757264B49A40015B9D2 /* Demo */,
 				A99F2756264B49A40015B9D2 /* Products */,
+				A907FB5A2786526B003F7EC7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +112,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				A99F2768264B4A330015B9D2 /* BottomSheet */,
+				A907FB5B2786526B003F7EC7 /* BottomSheet */,
 			);
 			productName = Demo;
 			productReference = A99F2755264B49A40015B9D2 /* Demo.app */;
@@ -125,7 +143,6 @@
 			);
 			mainGroup = A99F274C264B49A40015B9D2;
 			packageReferences = (
-				A99F2767264B4A330015B9D2 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = A99F2756264B49A40015B9D2 /* Products */;
 			projectDirPath = "";
@@ -346,21 +363,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		A99F2767264B4A330015B9D2 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielsaidi/BottomSheet";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		A99F2768264B4A330015B9D2 /* BottomSheet */ = {
+		A907FB5B2786526B003F7EC7 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A99F2767264B4A330015B9D2 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */

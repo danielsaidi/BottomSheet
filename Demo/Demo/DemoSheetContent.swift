@@ -23,6 +23,7 @@ struct DemoSheetContent: View {
 }
 
 struct DemoSheetContent_Previews: PreviewProvider {
+    
     static var previews: some View {
         DemoSheetContent(style: .standard)
     }

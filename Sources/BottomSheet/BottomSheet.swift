@@ -117,6 +117,11 @@ private extension BottomSheet {
         height(of: maxHeight, in: geo)
     }
     
+    /**
+     This is the vertical offset that's applied to the sheet.
+     Since the sheet has a bottom alignment, increasing this
+     offset will push the sheet down.
+     */
     func offset(for geo: GeometryProxy) -> CGFloat {
         isExpanded ? 0 : maxHeight(in: geo) - minHeight(in: geo)
     }
