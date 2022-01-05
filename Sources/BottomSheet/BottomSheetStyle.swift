@@ -64,8 +64,10 @@ public struct BottomSheetStyle {
     
     /**
      The standard bottom sheet style.
+     
+     You can replace this value to change the standard style.
      */
-    public static var standard: BottomSheetStyle { BottomSheetStyle() }
+    public static var standard = BottomSheetStyle()
     
     /**
      The standard bottom sheet style.

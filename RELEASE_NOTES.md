@@ -1,6 +1,14 @@
 # Release notes
 
 
+## 0.3.0
+
+### ✨ New Features
+
+* `BottomShetStyle.standard` is now mutable and lets you change the standard style. 
+
+
+
 ## 0.2.0
 
 This release adds macOS support and tweaks the design and behavior of the bottom sheet.
@@ -9,7 +17,7 @@ The handle was previously placed in a non-designable area, under which the sheet
 
 Now, the area has a divider that separates the handle from the content, with the entire handle bar area being customizable with the handle style. 
 
-### 💥 New Features
+### ✨ New Features
 
 * The library now compiles for macOS.
 * There is a new `BottomSheetHandleBar` view.
@@ -24,6 +32,7 @@ Now, the area has a divider that separates the handle from the content, with the
 ### 🗑 Deprecations
 
 * `BottomSheetHandleStyle` `color` has been renamed to `handleColor`.
+
 
 
 ## 0.1.0
