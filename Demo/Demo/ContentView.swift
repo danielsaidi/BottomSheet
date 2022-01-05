@@ -37,9 +37,9 @@ struct ContentView: View {
                 
                 Section(header: Text("Sheet Handle Styles").frame(height: 1), footer: bottomPadding) {
                     sheetHandleStyleButton("Standard", style: .standard)
-                    sheetHandleStyleButton("(Demo) Red", style: .demoRed)
-                    sheetHandleStyleButton("(Demo) Green", style: .demoGreen)
                     sheetHandleStyleButton("(Demo) Blue", style: .demoBlue)
+                    sheetHandleStyleButton("(Demo) Green", style: .demoGreen)
+                    sheetHandleStyleButton("(Demo) Red", style: .demoRed)
                     sheetHandleStyleButton("(Demo) Large Yellow", style: .demoLargeYellow)
                 }
             }
@@ -64,7 +64,18 @@ private extension ContentView {
             minHeight: useTallerMinHeight ? .points(300) : .points(150),
             maxHeight: useShorterMaxHeight ? .percentage(0.5) : .available,
             style: sheetStyle) {
-            DemoSheetContent(style: sheetStyle)
+                Group {
+                    if isExpanded {
+                        DemoSheetContent(style: sheetStyle)
+                    } else {
+                        List {
+                            Text("Collapsed view")
+                        }
+                    }
+                }
+                .cornerRadius(10)
+                .shadow(color: .black.opacity(0.4), radius: 1, x: 0, y: 0)
+                .padding()
         }
     }
     
@@ -79,13 +90,17 @@ private extension ContentView {
     
     func sheetStyleButton(_ text: String, style: BottomSheetStyle) -> some View {
         listButton(text) {
+            var style = style
+            style.handleStyle = sheetStyle.handleStyle
             sheetStyle = style
         }
     }
     
-    func sheetHandleStyleButton(_ text: String, style: BottomSheetHandleStyle) -> some View {
+    func sheetHandleStyleButton(_ text: String, style newStyle: BottomSheetHandleStyle) -> some View {
         listButton(text) {
-            sheetStyle = BottomSheetStyle(handleStyle: style)
+            var style = sheetStyle
+            style.handleStyle = newStyle
+            sheetStyle = style
         }
     }
 }

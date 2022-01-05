@@ -25,6 +25,10 @@ extension BottomSheetStyle {
     static var demoRound: BottomSheetStyle {
         BottomSheetStyle(cornerRadius: 40)
     }
+    
+    static var demoYellow: BottomSheetStyle {
+        BottomSheetStyle(color: .yellow)
+    }
 }
 
 extension BottomSheetHandleStyle {

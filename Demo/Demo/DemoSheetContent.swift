@@ -17,7 +17,7 @@ struct DemoSheetContent: View {
         List {
             ForEach(0..<100, id: \.self) {
                 Text("\($0)")
-            }.listRowBackground(style.color)
+            }
         }
     }
 }

@@ -65,7 +65,7 @@ public struct BottomSheet<Content: View>: BottomSheetView {
             .background(style.color)
             .cornerRadius(style.cornerRadius)
             .modified(with: style.modifier)
-                    // Add safe area inset to frame height in order to 'overflow' to the bottom of the screen
+            // Add safe area inset to frame height in order to 'overflow' to the bottom of the screen
             .frame(height: geo.size.height + geo.safeAreaInsets.bottom, alignment: .bottom)
             .offset(y: max(offset(for: geo) + translation, 0))
             .animation(.interactiveSpring())

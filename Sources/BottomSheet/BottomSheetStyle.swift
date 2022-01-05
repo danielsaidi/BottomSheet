@@ -40,27 +40,27 @@ public struct BottomSheetStyle {
     /**
      The color of the sheet.
      */
-    public let color: Color
+    public var color: Color
     
     /**
      The corner radius of the sheet.
      */
-    public let cornerRadius: CGFloat
+    public var cornerRadius: CGFloat
     
     /**
      The bottom sheet's handle style.
      */
-    public let handleStyle: BottomSheetHandleStyle
+    public var handleStyle: BottomSheetHandleStyle
     
     /**
      The modifier to apply to the sheet.
      */
-    public let modifier: (AnyView) -> AnyView
+    public var modifier: (AnyView) -> AnyView
     
     /**
      The drag gesture snap ratio, after which the sheet slides to the full height.
      */
-    public let snapRatio: CGFloat
+    public var snapRatio: CGFloat
     
     /**
      The standard bottom sheet style.

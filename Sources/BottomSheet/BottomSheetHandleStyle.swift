@@ -37,22 +37,22 @@ public struct BottomSheetHandleStyle {
     }
     
     /// The color of the handle background
-    public let backgroundColor: Color
+    public var backgroundColor: Color
     
     /// The corner radius of the handle
-    public let cornerRadius: CGFloat
+    public var cornerRadius: CGFloat
     
     /// The color of the handle divider
-    public let dividerColor: Color?
+    public var dividerColor: Color?
     
     /// The color of the handle
-    public let handleColor: Color
+    public var handleColor: Color
     
     /// The padding to add around the handle
-    public let padding: EdgeInsets?
+    public var padding: EdgeInsets?
     
     /// The size of the handle
-    public let size: CGSize
+    public var size: CGSize
     
     /// The standard bottom sheet handle style
     public static var standard: BottomSheetHandleStyle { BottomSheetHandleStyle() }

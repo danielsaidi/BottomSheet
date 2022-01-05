@@ -1,11 +1,12 @@
 # Release notes
 
 
-## 0.3.0
+## 0.3
 
 ### ✨ New Features
 
-* `BottomShetStyle.standard` is now mutable and lets you change the standard style. 
+* `BottomSheetStyle` and `BottomSheetHandleStyle` are now mutable.
+* `BottomSheetStyle.standard` is now mutable and lets you change the standard style. 
 
 
 
