@@ -47,8 +47,8 @@ pod DSBottomSheet
 ```swift
 let sheet = BottomSheet(
     isExpanded: $isSheetExpanded,
-    minHeight: .points(100)
-    maxHeight: .available
+    minHeight: .points(100),
+    maxHeight: .available,
     style: .standard
 )
 ```

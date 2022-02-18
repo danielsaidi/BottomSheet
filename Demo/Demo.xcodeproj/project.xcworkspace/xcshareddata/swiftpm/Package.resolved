@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "BottomSheet",
-        "repositoryURL": "https://github.com/danielsaidi/BottomSheet",
+        "repositoryURL": "https://github.com/danielsaidi/BottomSheet.git",
         "state": {
-          "branch": "master",
-          "revision": "c0f7a6b96be5420d02dde586be258b03dff5b455",
-          "version": null
+          "branch": null,
+          "revision": "5a5aa250483690820feb016b7760539938d4fbb6",
+          "version": "0.3.0"
         }
       }
     ]
