@@ -18,34 +18,36 @@ struct ContentView: View {
     @State private var sheetStyle = BottomSheetStyle.standard
     
     var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text("").frame(height: 1)) {
-                    Toggle("Is visible", isOn: $isVisible)
-                    Toggle("Is expanded", isOn: $isExpanded)
-                    Toggle("Use taller min height", isOn: $useTallerMinHeight)
-                    Toggle("Use shorter max height", isOn: $useShorterMaxHeight)
+        TabView {
+            NavigationView {
+                List {
+                    Section(header: Text("").frame(height: 1)) {
+                        Toggle("Is visible", isOn: $isVisible)
+                        Toggle("Is expanded", isOn: $isExpanded)
+                        Toggle("Use taller min height", isOn: $useTallerMinHeight)
+                        Toggle("Use shorter max height", isOn: $useShorterMaxHeight)
+                    }
+                    
+                    Section(header: Text("Sheet Styles").frame(height: 1)) {
+                        sheetStyleButton("Standard", style: .standard)
+                        sheetStyleButton("(Demo) Red", style: .demoRed)
+                        sheetStyleButton("(Demo) Green", style: .demoGreen)
+                        sheetStyleButton("(Demo) Blue", style: .demoBlue)
+                        sheetStyleButton("(Demo) Larger Corner Radius", style: .demoRound)
+                    }
+                    
+                    Section(header: Text("Sheet Handle Styles").frame(height: 1), footer: bottomPadding) {
+                        sheetHandleStyleButton("Standard", style: .standard)
+                        sheetHandleStyleButton("(Demo) Blue", style: .demoBlue)
+                        sheetHandleStyleButton("(Demo) Green", style: .demoGreen)
+                        sheetHandleStyleButton("(Demo) Red", style: .demoRed)
+                        sheetHandleStyleButton("(Demo) Large Yellow", style: .demoLargeYellow)
+                    }
                 }
-                
-                Section(header: Text("Sheet Styles").frame(height: 1)) {
-                    sheetStyleButton("Standard", style: .standard)
-                    sheetStyleButton("(Demo) Red", style: .demoRed)
-                    sheetStyleButton("(Demo) Green", style: .demoGreen)
-                    sheetStyleButton("(Demo) Blue", style: .demoBlue)
-                    sheetStyleButton("(Demo) Larger Corner Radius", style: .demoRound)
-                }
-                
-                Section(header: Text("Sheet Handle Styles").frame(height: 1), footer: bottomPadding) {
-                    sheetHandleStyleButton("Standard", style: .standard)
-                    sheetHandleStyleButton("(Demo) Blue", style: .demoBlue)
-                    sheetHandleStyleButton("(Demo) Green", style: .demoGreen)
-                    sheetHandleStyleButton("(Demo) Red", style: .demoRed)
-                    sheetHandleStyleButton("(Demo) Large Yellow", style: .demoLargeYellow)
-                }
+                .buttonStyle(PlainButtonStyle())
+                .navigationTitle("Bottom Sheet Demo")
+                .listStyle(InsetGroupedListStyle())
             }
-            .buttonStyle(PlainButtonStyle())
-            .navigationTitle("Bottom Sheet Demo")
-            .listStyle(InsetGroupedListStyle())
         }
         .bottomSheet(sheet, if: isVisible)
         .navigationViewStyle(.stack)
