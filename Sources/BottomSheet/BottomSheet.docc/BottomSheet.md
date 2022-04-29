@@ -26,6 +26,12 @@ BottomSheet can be installed with the Swift Package Manager:
 https://github.com/danielsaidi/BottomSheet.git
 ```
 
+or with CocoaPods:
+
+```
+pod DSBottomSheet
+```
+
 
 
 ## About this documentation

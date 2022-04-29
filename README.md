@@ -1,11 +1,10 @@
 <p align="center">
-    <img src ="Resources/Logo.png" alt="BottomSheet" title="BottomSheet Logo" width=600 />
+    <img src ="Resources/Logo.png" alt="BottomSheet Logo" title="BottomSheet" width=600 />
 </p>
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/BottomSheet?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/cocoapods/p/DSBottomSheet.svg?style=flat" alt="Platform" />
-    <img src="https://img.shields.io/badge/Swift-5.3-orange.svg" alt="Swift 5.3" />
+    <img src="https://img.shields.io/badge/Swift-5.6-orange.svg" alt="Swift 5.6" />
     <img src="https://img.shields.io/github/license/danielsaidi/BottomSheet" alt="MIT License" />
     <a href="https://twitter.com/danielsaidi">
         <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
@@ -15,13 +14,13 @@
 
 ## About BottomSheet
 
-BottomSheet makes it easy to add custom bottom sheets to your `SwiftUI` apps. The result can look like this...or completely different:
+BottomSheet makes it easy to add custom bottom sheets to your `SwiftUI` apps. The result can look like this, or completely different:
 
 <p align="center">
     <img src="Resources/Demo.gif" width=300 />
 </p>
 
-Bottom sheets can be resized manually and programatically and can be customized to fit your specific needs. You can change colors, fonts, corner radius, expanded height etc. and add any content to them.
+These sheets can be resized manually and programatically and can be customized to fit your specific needs. You can change colors, fonts, corner radius, expanded height etc. and add any content to them.
 
 
 
@@ -37,6 +36,12 @@ BottomSheet can be installed with the Swift Package Manager:
 
 ```
 https://github.com/danielsaidi/BottomSheet.git
+```
+
+or with CocoaPods:
+
+```
+pod DSBottomSheet
 ```
 
 
