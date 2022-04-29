@@ -2,10 +2,17 @@
 .DS_Store
 /.build
 /Packages
-xcuserdata/
+.swiftpm/
 
-# fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/README.md
-fastlane/test_output
+# Documentation
+Docs
+documentation
+downloads
+videos
+
+# Fastlane
+Fastlane/report.xml
+Fastlane/Preview.html
+Fastlane/screenshots
+Fastlane/test_output
+Fastlane/README.md
