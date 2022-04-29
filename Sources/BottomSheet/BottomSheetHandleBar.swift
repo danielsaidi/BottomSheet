@@ -9,11 +9,19 @@
 import SwiftUI
 
 /**
- This is the entire handle section, including the handle and
- its padding, the divider line etc.
+ This is the entire bottom sheet handle "section", including
+ the handle view as well as its padding, the divider etc.
+ 
+ To only create a handle, use ``BottomSheetHandle`` instead.
  */
 public struct BottomSheetHandleBar: View {
     
+    /**
+     Create a handle bottom sheet handle bar.
+     
+     - Parameters:
+       - style: The style to apply to the bar handle.
+     */
     public init(style: BottomSheetHandleStyle = .standard) {
         self.style = style
     }

@@ -16,8 +16,7 @@ public protocol BottomSheetView: View {}
 
 /**
  This view can be used to place any content bottom-most in a
- fake sheet that can be dragged up manully or toggled with a
- `bool` binding.
+ sheet that can be dragged or toggled with a `bool` binding.
  
  This implementation is based on the outstanding demo bottom
  sheet made by `@mecid`. The original code can be found here:
@@ -26,14 +25,16 @@ public protocol BottomSheetView: View {}
  */
 public struct BottomSheet<Content: View>: BottomSheetView {
     
-    /// Create a bottom sheet instance.
-    ///
-    /// - Parameters:
-    ///   - isExpanded: Whether or not the sheet is expanded to its full height
-    ///   - minHeight: The min height of the sheet, by default 100 points
-    ///   - maxHeight: The max height of the sheet, by default the available height
-    ///   - style: The style of the sheet
-    ///   - content: The sheet's content, presented below the handle
+    /**
+     Create a bottom sheet instance.
+     
+     - Parameters:
+       - isExpanded: Whether or not the sheet is expanded to its full height
+       - minHeight: The min height of the sheet, by default 100 points
+       - maxHeight: The max height of the sheet, by default the available height
+       - style: The style of the sheet
+       - content: The sheet's content, presented below the handle
+     */
     public init(
         isExpanded: Binding<Bool>,
         minHeight: BottomSheetHeight = .points(100),

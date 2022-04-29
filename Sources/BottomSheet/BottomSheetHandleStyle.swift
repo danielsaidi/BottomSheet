@@ -9,17 +9,23 @@
 import SwiftUI
 
 /**
- This struct can be used to style a `BottomSheetHandle`.
+ This struct can be used to style a ``BottomSheetHandle`` or
+ an entire ``BottomSheetHandleBar``.
  */
 public struct BottomSheetHandleStyle {
     
-    /// Create a bottom sheet handle instance.
-    ///
-    /// - Parameters:
-    ///   - color: The color of the handle
-    ///   - width: The width of the handle
-    ///   - height: The height of the handle
-    ///   - cornerRadius: The corner radius of the handle
+    /**
+     Create a bottom sheet handle instance.
+     
+     - Parameters:
+       - handleColor: The color of the handle.
+       - backgroundColor: The background color.
+       - dividerColor: The color of the divider below the handle.
+       - width: The handle width.
+       - height: The handle height.
+       - padding: The padding to add around the handle.
+       - cornerRadius: The handle corner radius.
+     */
     public init(
         handleColor: Color = Color.secondary,
         backgroundColor: Color = Color.primary.opacity(0.02),
@@ -36,24 +42,44 @@ public struct BottomSheetHandleStyle {
         self.size = CGSize(width: width, height: height)
     }
     
-    /// The color of the handle background
+    /**
+     The background color.
+     */
     public var backgroundColor: Color
     
-    /// The corner radius of the handle
+    /**
+     The handle corner radius.
+     */
     public var cornerRadius: CGFloat
     
-    /// The color of the handle divider
+    /**
+     The color of the divider below the handle.
+     */
     public var dividerColor: Color?
     
-    /// The color of the handle
+    /**
+     The color of the handle.
+     */
     public var handleColor: Color
     
-    /// The padding to add around the handle
+    /**
+     The padding to add around the handle.
+     */
     public var padding: EdgeInsets?
     
-    /// The size of the handle
+    /**
+     The size of the handle.
+     */
     public var size: CGSize
+}
+
+public extension BottomSheetHandleStyle {
     
-    /// The standard bottom sheet handle style
-    public static var standard: BottomSheetHandleStyle { BottomSheetHandleStyle() }
+    /**
+     The standard bottom sheet handle style.
+     
+     You can override this value to change the default style
+     of all bottom sheet handles.
+     */
+    static var standard = BottomSheetHandleStyle()
 }

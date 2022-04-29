@@ -10,10 +10,16 @@ import SwiftUI
 
 /**
  This is the thin, rounded handle that is added topmost in a
- `BottomSheet`. It has no built-in behavior.
+ ``BottomSheet``.
  */
 public struct BottomSheetHandle: View {
     
+    /**
+     Create a handle bottom sheet handle.
+     
+     - Parameters:
+       - style: The style to apply to the bar handle.
+     */
     public init(style: BottomSheetHandleStyle = .standard) {
         self.style = style
     }

@@ -1,6 +1,14 @@
 # Release notes
 
 
+## 0.4
+
+### 💡 Behavior Changes
+
+* `BottomSheetHandleStyle.standard` is now mutable.
+
+
+
 ## 0.3
 
 ### ✨ New Features
@@ -10,7 +18,7 @@
 
 
 
-## 0.2.0
+## 0.2
 
 This release adds macOS support and tweaks the design and behavior of the bottom sheet.
 
@@ -36,7 +44,7 @@ Now, the area has a divider that separates the handle from the content, with the
 
 
 
-## 0.1.0
+## 0.1
 
 This is the first public release of BottomSheet. 
 

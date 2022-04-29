@@ -9,18 +9,20 @@
 import SwiftUI
 
 /**
- This struct can be used to style a `BottomSheet`.
+ This struct can be used to style a ``BottomSheet`` view.
  */
 public struct BottomSheetStyle {
     
-    /// Create a bottom sheet style.
-    ///
-    /// - Parameters:
-    ///   - color: The color of the sheet
-    ///   - cornerRadius: The corner radius of the sheet
-    ///   - modifier: The modifier to apply to the sheet
-    ///   - snapRatio: The drag gesture snap ratio of the max height, after which the sheet slides to the full height
-    ///   - handleStyle: The bottom sheet's handle style
+    /**
+     Create a bottom sheet style.
+    
+     - Parameters:
+       - color: The color of the sheet.
+       - cornerRadius: The corner radius of the sheet.
+       - modifier: The modifier to apply to the sheet.
+       - snapRatio: The drag gesture snap ratio of the max height.
+       - handleStyle: The bottom sheet's handle style.
+     */
     public init(
         color: Color = .bottomSheet,
         cornerRadius: CGFloat = 16,
@@ -61,18 +63,22 @@ public struct BottomSheetStyle {
      The drag gesture snap ratio, after which the sheet slides to the full height.
      */
     public var snapRatio: CGFloat
+}
+
+public extension BottomSheetStyle {
     
     /**
      The standard bottom sheet style.
      
-     You can replace this value to change the standard style.
+     You can override this value to change the default style
+     of all bottom sheets.
      */
-    public static var standard = BottomSheetStyle()
+    static var standard = BottomSheetStyle()
     
     /**
      The standard bottom sheet style.
      */
-    public static func standardModifier(view: AnyView) -> AnyView {
+    static func standardModifier(view: AnyView) -> AnyView {
         AnyView(view.shadow(color: .black.opacity(0.2), radius: 5))
     }
 }
