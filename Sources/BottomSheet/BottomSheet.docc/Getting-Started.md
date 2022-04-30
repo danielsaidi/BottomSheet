@@ -1,6 +1,7 @@
 #  Getting Started
 
-This article describes how you get started with BottomSheet.
+This article describes how to get started with BottomSheet.
+
 
 
 ## Installation
@@ -10,6 +11,12 @@ BottomSheet can be installed with the Swift Package Manager:
 ```
 https://github.com/danielsaidi/BottomSheet.git
 ``` 
+
+or with CocoaPods:
+
+```
+pod DSBottomSheet
+```
 
 
 ## WebView

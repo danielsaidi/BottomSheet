@@ -8,7 +8,7 @@ BottomSheet makes it easy to add custom bottom sheets to `SwiftUI` apps.
 
 ![BottomSheet logo](Logo.png)
 
-Bottom sheets can be resized manually and programatically and can be customized to fit your specific needs. You can change colors, fonts, corner radius, size etc. and add any content to them.
+These sheets can be resized manually and programatically and can be customized to fit your specific needs. You can change colors, fonts, corner radius, size etc. and add any content to them.
 
 
 
@@ -37,6 +37,8 @@ pod DSBottomSheet
 ## About this documentation
 
 The online documentation is currently iOS only. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`.
+
+Note that DocC currently omits extensions, which means that some extensions are missing. Future versions will aim to improve this.
 
 
 

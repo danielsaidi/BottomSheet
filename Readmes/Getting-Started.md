@@ -1,6 +1,7 @@
 #  Getting Started
 
-This article describes how you get started with BottomSheet.
+This article describes how to get started with BottomSheet.
+
 
 
 ## Installation
@@ -10,6 +11,13 @@ BottomSheet can be installed with the Swift Package Manager:
 ```
 https://github.com/danielsaidi/BottomSheet.git
 ``` 
+
+or with CocoaPods:
+
+```
+pod DSBottomSheet
+```
+
 
 
 ## WebView
@@ -44,6 +52,7 @@ Once you have a sheet, you can add it to any view, using the `bottomSheet` as ca
 The sheet will be added above the view and docked to the bottom. It can then be swiped up and down or expanded and collapsed by tapping the handle.
 
 
+
 ## Heights
 
 A ``BottomSheet`` is created with a ``BottomSheetHeight`` `minHeight` and `maxHeight`, which is an enum with these cases:
@@ -53,6 +62,7 @@ A ``BottomSheet`` is created with a ``BottomSheetHeight`` `minHeight` and `maxHe
 * `points` - a fixed number of points
 
 You can set these to control how tall your sheet can become and how much it can collapse. You can change these properties at any time.
+
 
 
 ## Styling
@@ -68,11 +78,13 @@ A ``BottomSheet`` is created with a ``BottomSheetStyle`` `style`, which is an en
 You can define your own styles and apply them when creating a bottom sheet.
 
 
+
 ## Important
 
 This library uses resource-based colors, which aren't available to SwiftUI previews outside of this library.
 
 Make sure to always use the `.preview` style when previewing a sheet.    
+
 
 
 ## Conclusion
