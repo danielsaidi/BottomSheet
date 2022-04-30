@@ -45,7 +45,7 @@ struct ContentView: View {
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
-                .navigationTitle("Bottom Sheet Demo")
+                .navigationTitle("BottomSheet Demo")
                 .listStyle(InsetGroupedListStyle())
             }
         }
