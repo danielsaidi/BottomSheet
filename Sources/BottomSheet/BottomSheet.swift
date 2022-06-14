@@ -139,82 +139,25 @@ private extension View {
     }
 }
 
+@available(iOS 16.0, *)
 struct BottomSheet_Previews: PreviewProvider {
-    
+
+    /**
+     This preview shows how you can use the new features for
+     dynamically resizable sheets in iOS 16 instead of using
+     this library.
+     */
     struct Preview: View {
         
-        @State private var isExpanded = false
-        
-        var twentyItems: some View {
-            VStack {
-                ForEach(1...20, id: \.self) { index in
-                    HStack {
-                        Text("Item \(index)")
-                        Spacer()
-                        Button(
-                            action: { print("Clicked \(index)") },
-                            label: {
-                                Image(systemName: "tray.and.arrow.down.fill")
-                            })
-                    }
-                    .padding()
-                    .frame(minHeight: 50)
-                }
-                // The bottom line
-                Color.pink.frame(height: 1).id(-123)
-            }
-        }
-        
-        var twentyItemsList: some View {
-            List {
-                ForEach(1...20, id: \.self) { index in
-                    Text("Item \(index)")
-                }
-            }
-        }
-        
+        @State private var isExpanded = true
+
         var body: some View {
-            Group {
-                
-                //
-                // ScrollView
-                if #available(iOS 14.0, *) {
-                    BottomSheet(isExpanded: $isExpanded, maxHeight: .available) {
-                        ScrollViewReader { scroll in
-                            ScrollView {
-                                twentyItems.onAppear {
-                                    // Scroll to bottom in order to see if the padding is applied correctly
-                                    // Oddly, this renders only correctly if you run the live preview. In the static preview, the last element is still stuck in the safe area, or even below...
-                                    scroll.scrollTo(-123)
-                                }
-                            }
-                        }
-                    }
+            Color.green.edgesIgnoringSafeArea(.all)
+                .sheet(isPresented: $isExpanded) {
+                    Color.red
+                        .presentationDetents([.medium, .height(100), .large])
+                        .edgesIgnoringSafeArea(.all)
                 }
-                
-                BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(1)) {
-                    ScrollView {
-                        twentyItems
-                    }
-                }
-                
-                //
-                // List
-                if #available(iOS 14.0, *) {
-                    BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(0.6)) {
-                        ScrollViewReader { scroll in
-                            twentyItemsList.onAppear {
-                                // Scroll to bottom in order to see if the padding is applied correctly
-                                scroll.scrollTo(-123)
-                            }
-                        }
-                    }
-                }
-                
-                BottomSheet(isExpanded: $isExpanded, maxHeight: .percentage(0.6)) {
-                        twentyItemsList
-                }
-            }
         }
     }
     
