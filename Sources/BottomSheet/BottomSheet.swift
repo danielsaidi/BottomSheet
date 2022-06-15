@@ -160,7 +160,10 @@ struct BottomSheet_Previews: PreviewProvider {
             Color.green.edgesIgnoringSafeArea(.all)
                 .sheet(isPresented: $isExpanded) {
                     Color.red
-                        .presentationDetents([.fraction(0.5), .large])
+                        .presentationDetents([
+                            .height(10),
+                            .fraction(0.5),
+                            .large])
                         //.presentationDragIndicator(.hidden)
                         .interactiveDismissDisabled()
                         .edgesIgnoringSafeArea(.all)
