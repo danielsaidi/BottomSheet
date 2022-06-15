@@ -12,6 +12,14 @@ These sheets can be resized manually and programatically and can be customized t
 
 
 
+## Deprecation notice
+
+This library has been deprecated, due to the new sheet size capabilities in SwiftUI 4, where you can use the new `presentationDetents` view modifier to define custom sizes. The library won't be developed further, but will be around for those of you who use it.
+
+The library previews show you how to use the new SwiftUI APIs while the demo still uses the library functionality. 
+
+
+
 ## Supported Platforms
 
 BottomSheet supports `iOS 13` and `macOS 11`.

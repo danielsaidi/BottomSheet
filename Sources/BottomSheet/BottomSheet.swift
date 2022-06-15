@@ -22,6 +22,11 @@ public protocol BottomSheetView: View {}
  sheet made by `@mecid`. The original code can be found here:
  
  https://gist.github.com/mecid/78eab34d05498d6c60ae0f162bfd81ee
+
+ `IMPORTANT` This library has been deprecated due to the new
+ custom sheet size capabilities in SwiftUI 4. It will not be
+ developed further. Have a look at the previews in this file
+ to see how to use the new `presentationDetents` instead.
  */
 public struct BottomSheet<Content: View>: BottomSheetView {
     
@@ -155,7 +160,9 @@ struct BottomSheet_Previews: PreviewProvider {
             Color.green.edgesIgnoringSafeArea(.all)
                 .sheet(isPresented: $isExpanded) {
                     Color.red
-                        .presentationDetents([.medium, .height(100), .large])
+                        .presentationDetents([.fraction(0.5), .large])
+                        //.presentationDragIndicator(.hidden)
+                        .interactiveDismissDisabled()
                         .edgesIgnoringSafeArea(.all)
                 }
         }

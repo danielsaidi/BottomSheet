@@ -12,6 +12,14 @@
 </p>
 
 
+## Deprecation notice
+
+This library has been deprecated, due to the new sheet size capabilities in SwiftUI 4, where you can use the new `presentationDetents` view modifier to define custom sizes. The library won't be developed further, but will be around for those of you who use it.
+
+The library previews show you how to use the new SwiftUI APIs while the demo still uses the library functionality. 
+
+
+
 ## About BottomSheet
 
 BottomSheet makes it easy to add custom bottom sheets to your `SwiftUI` apps. The result can look like this, or completely different:
