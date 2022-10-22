@@ -14,9 +14,11 @@
 
 ## Deprecation notice
 
-This library will be deprecated, due to the new SwiftUI 4 custom sheet size capabilities. Since this functionality will be added to SwiftUI, this library is no longer needed.
+This library will be deprecated, due to the new SwiftUI 4 custom sheet size capabilities that render this library no longer needed.
 
-In SwiftUI 4, you can use the new `presentationDetents` view modifier to define custom sheet sizes. You can also make sheets non-dismissable, hide the resize handle, etc. You can read more about these new capabilities [here](https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes).
+In SwiftUI 4, you can use the new `presentationDetents` view modifier to define custom sheet sizes. You can also make sheets non-dismissable, hide the resize handle, etc. You can read more about these new capabilities [here](https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes). 
+
+It's not yet possible to undim the sheet background in native SwiftUI, like Apple does in for instance Apple Maps, but you can work achieve it with an `undimmedPresentationDetents` view modifier that I write more about [here](https://danielsaidi.com/blog/2022/06/21/undimmed-presentation-detents-in-swiftui). It's basically just a replacement of the native `presentationDetents`.
 
 This library will not be developed further, but will be around for a while, for those of you who use it. It will be archived before it's completely removed in a few years.
 
